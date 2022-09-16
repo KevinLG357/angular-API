@@ -37,7 +37,7 @@ export class ApiListComponent implements OnInit {
 
   filterCharacters(charactersFilterName: string) {
     this.charactersFilter = this.characters.filter(
-      (person) =>
+      (person: any) =>
         person.name
           .toLocaleLowerCase()
           .includes(charactersFilterName.toLocaleLowerCase()) ||

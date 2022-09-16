@@ -1,6 +1,44 @@
-<div class="container text-center mt-5 pt-5">
-  <div class="row">
-    <app-api-card class="col" *ngFor="let character of details" [character]="character">
-    </app-api-card>
+<app-navbar></app-navbar>
+
+<br>
+<br><br>
+<mat-toolbar color="primary">
+  <button type="button" class="example-icon" mat-button (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Rick and Morty App</span>
+  <span class="example-spacer"></span>
+  <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button> -->
+</mat-toolbar>
+
+<mat-drawer-container class="example-container">
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <a class="text-decoration-none" href="/"><span>
+        <h3>Home</h3>
+      </span></a> <br>
+    <a class="text-decoration-none" href="episodes"><span>
+        <h3>Episodes</h3>
+      </span></a>
+  </mat-drawer>
+
+  <div class="mt-4">
+    <div class="container">
+      <div class="col-md-4 col-lg-6 my-3 mx-auto text-center">
+        <input class="form-control me-2" #inputSearch (keyup)="filterCharacters(inputSearch.value)" type="search"
+          placeholder="Search" aria-label="Search" />
+      </div>
+      <div class="row" style="z-index: 0;">
+        <app-api-card class="col" *ngFor="let character of charactersFilter; index as pos" [character]="character">
+        </app-api-card>
+      </div>
+    </div>
   </div>
-</div>
+
+</mat-drawer-container>
+
+<app-footer></app-footer>
