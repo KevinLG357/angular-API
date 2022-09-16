@@ -9,7 +9,6 @@ import { ApiServiceService } from '../services/api-service.service';
 })
 export class ApiCardComponent implements OnInit {
 
-  /* characterDetails: CharacterDetails = new CharacterDetails(); */
   @Input('character') character: any;
   constructor(private apiService: ApiServiceService) {}
 

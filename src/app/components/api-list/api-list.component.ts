@@ -12,7 +12,6 @@ import { NavigationEnd, ParamMap } from '@angular/router';
 })
 export class ApiListComponent implements OnInit {
   showGoUpButton = false;
-  private pageNum: number = 1;
   private hideScrollHeight = 200;
   private showScrollHeight = 500;
   characters: CharacterDetails[] = [];
