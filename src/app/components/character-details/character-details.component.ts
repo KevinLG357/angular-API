@@ -19,6 +19,8 @@ export class CharacterDetailsComponent implements OnInit {
   imageStatus: any[] = [];
   imageGender: any[] = [];
   imageSpecies: any[] = [];
+  imageOrigin: any[] = [];
+  imageLocation: any[] = [];
   showGoUpButton = false;
   private hideScrollHeight = 200;
   private showScrollHeight = 500;
@@ -36,13 +38,15 @@ export class CharacterDetailsComponent implements OnInit {
       this.location = this.details[0].location.url;
       this.apiService.getLocation(this.location).subscribe((result) => {
         this.resid.push(result);
-        for (let i = 0; i < 50; i++) {
+        for (let i = 0; i < this.resid[0].residents.length; i++) {
           this.apiService.getCharacterByUrl(this.resid[0].residents[i]).subscribe((result) => {
             this.imageResidents.push(result.image);
             this.imageNames.push(result.name);
             this.imageStatus.push(result.status);
             this.imageGender.push(result.gender);
             this.imageSpecies.push(result.species);
+            this.imageOrigin.push(result.origin.name);
+            this.imageLocation.push(result.location.name);
           });
         }
 

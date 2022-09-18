@@ -26,15 +26,17 @@
       </span></a>
   </mat-drawer>
 
-  <div class="mt-4">
-    <div class="container">
-      <div class="col-md-4 col-lg-6 my-3 mx-auto text-center">
-        <input class="form-control me-2" #inputSearch (keyup)="filterCharacters(inputSearch.value)" type="search"
-          placeholder="Search" aria-label="Search" />
-      </div>
-      <div class="row" style="z-index: 0;">
-        <app-api-card class="col" *ngFor="let character of charactersFilter; index as pos" [character]="character">
-        </app-api-card>
+  <div class="example-sidenav-content py-3">
+    <div class="mt-4">
+      <div class="container">
+        <div class="col-md-4 col-lg-6 my-3 mx-auto text-center">
+          <input class="form-control me-2" #inputSearch (keyup)="filterCharacters(inputSearch.value)" type="search"
+            placeholder="Search" aria-label="Search" />
+        </div>
+        <div class="row" style="z-index: 0;">
+          <app-api-card class="col" *ngFor="let character of charactersFilter; index as pos" [character]="character">
+          </app-api-card>
+        </div>
       </div>
     </div>
   </div>
